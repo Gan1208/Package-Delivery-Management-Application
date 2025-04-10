@@ -1,0 +1,82 @@
+<div class="album py-5">
+    <div class="container">
+        <h3 class="my-2">Package List</h3>
+        <div class="row row-cols-1 g-3">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">MongoDB ID</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">IsAllocated</th>
+                        <th scope="col">packageDriverId</th>
+                        <th scope="col">Show Driver</th>
+                      </tr>
+                    </thead>
+                    
+                    <tbody>
+                       @for(aPackage of packageList; track $index){
+                        <tr>
+                        <th scope="row">{{aPackage._id}}</th>
+                        <td>{{aPackage.packageId}}</td>
+                        <td>{{aPackage.packageTitle}}</td>
+                        <td>{{aPackage.packageWeight|weight}}</td>
+                        <td>{{aPackage.packageDestination}}</td>
+                        <td>{{aPackage.packageDescription}}</td>
+                        <td>{{aPackage.isAllocated}}</td>
+                        <td>{{aPackage.packageDriverId}}</td>
+                        <td>
+                          <form>
+                        <button class="btn btn-primary" (click)="getPackageDriver(aPackage.packageDriverId)" id="getPackageDriver" name="getPackageDriver" >?</button>
+                      </form>
+                      </td>
+                      </tr>
+                    }
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if(showDriver){
+    <div class="album py-5">
+      <div class="container">
+          <h3 class="my-2">Driver Details</h3>
+          <div class="row row-cols-1 g-3">
+              <div class="col">
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">MongoDB ID</th>
+                          <th scope="col">Id</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Department</th>
+                          <th scope="col">License</th>
+                          <th scope="col">is Active?</th>
+                          <th scope="col">Create At</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                          <th scope="row">{{driver._id}}</th>
+                          <td>{{driver.driverId}}</td>
+                          <td>{{driver.driverName|uppercase}}</td>
+                          <td>{{driver.driverDepartment}}</td>
+                          <td>{{driver.driverLicence}}</td>
+                          <td>{{driver.driverIsActive}}</td>
+                          <td>{{driver.driverCreatedAt}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
+    </div>
+  }
+

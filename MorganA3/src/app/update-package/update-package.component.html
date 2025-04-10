@@ -1,0 +1,26 @@
+<div class="album py-5" >
+    <div class="container">
+        <h3 class="my-2" style="display: grid;place-items: center;">Update Package</h3>
+        <div class="row row-cols-1 row-cols-sm-2 g-3" style="display: grid;place-items: center;">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="_id" class="form-label">Package Id</label>
+                                <input type="text" [(ngModel)]= "aPackage._id" name="_id" class="form-control" id="_id" placeholder="Enter package id to update package" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="packageDestination" class="form-label">Package Destination</label>
+                                <input type="text" [(ngModel)]= "aPackage.packageDestination" name="packageDestination" class="form-control" id="packageDestination" placeholder="Enter package destination to update package" />
+                            </div>
+                            <button class="btn btn-primary" (click)="updatePackageInfo()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

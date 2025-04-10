@@ -1,0 +1,97 @@
+<div class="album py-5">
+    <div class="container">
+        <h3 class="my-2">Translate Description</h3>
+        <div class="row row-cols-1 g-3">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">MongoDB ID</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">IsAllocated</th>
+                        <th scope="col">packageDriverId</th>
+                      </tr>
+                    </thead>
+                    
+                    <tbody>
+                       @for(aPackage of packageList; track $index){
+                        <tr>
+                        <th scope="row">{{aPackage._id}}</th>
+                        <td>{{aPackage.packageId}}</td>
+                        <td>{{aPackage.packageTitle}}</td>
+                        <td>{{aPackage.packageWeight|weight}}</td>
+                        <td>{{aPackage.packageDestination}}</td>
+                        <td>{{aPackage.packageDescription}}</td>
+                        <td>{{aPackage.isAllocated}}</td>
+                        <td>{{aPackage.packageDriverId}}</td>
+                        <td>
+                          <form>
+                        <button class="btn btn-success" (click)="getTranslate(aPackage.packageDescription)" id="getPackageTranslate" name="getPackageTranslate" >T</button>
+                      </form>
+                      </td>
+                      </tr>
+                    }
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+
+
+        <div class="row row-cols-1 row-cols-sm-2 g-3" style="display: grid;place-items: center;">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="targetLanguage" class="form-label">Target Language</label>
+                                <select name="targetLanguage" [(ngModel)]= "targetLanguage" class="form-control" id="targetLanguage" >
+                                    <option value="zh" selected>Chinese (zh)</option>
+                                    <option value="hi" >Hindi (hi)</option>
+                                    <option value="es" >Spanish (es)</option>  
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+@if(showTranslation){
+    <div class="album py-5">
+      <div class="container">
+          <h3 class="my-2">Translation Details</h3>
+          <div class="row row-cols-1 g-3">
+              <div class="col">
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Text</th>
+                          <th scope="col">Target Language</th>
+                          <th scope="col">Translate</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for(t of translationList; track $index){
+                            <tr>
+                            <th scope="row">{{t.text}}</th>
+                            <td>{{t.targetLanguage}}</td>
+                            <td>{{t.translation}}</td>
+                          </tr>
+                        }
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
+    </div>
+  }
+
+</div>
+</div>

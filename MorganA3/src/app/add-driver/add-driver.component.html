@@ -1,0 +1,40 @@
+<div class="album py-5" >
+    <div class="container">
+        <h3 class="my-2" style="display: grid;place-items: center;">Add New Driver</h3>
+        <div class="row row-cols-1 row-cols-sm-2 g-3" style="display: grid;place-items: center;">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="driverName" class="form-label">Driver Name</label>
+                                <input type="text" [(ngModel)]= "aDriver.driverName" name="driverName" class="form-control" id="driverName" placeholder="Enter driver name" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="driverDepartment" class="form-label">Department</label>
+                                <select name="driverDepartment" [(ngModel)]= "aDriver.driverDepartment" class="form-control" id="driverDepartment" >
+                                    <option value="food" selected>food</option>
+                                    <option value="furniture" selected>furniture</option>
+                                    <option value="electronic" selected>electronic</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="driverLicense" class="form-label">License</label>
+                                <input type="text" [(ngModel)]= "aDriver.driverLicence" name="driverLicense" class="form-control" id="driverLicense" placeholder="Enter driver license" />
+                            </div>
+                            
+                            <div class="form-check form-switch" style="margin-bottom: 1pc;">
+                                <input class="form-check-input" [(ngModel)]= "aDriver.driverIsActive" name="isActive" type="checkbox" id="isActive"  value = "true" checked>
+                                <label class="form-check-label" for="isActive">Is Active?</label>
+                            </div>
+
+                            <button  class="btn btn-primary" (click)="addDriver()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

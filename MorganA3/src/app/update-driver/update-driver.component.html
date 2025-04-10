@@ -1,0 +1,33 @@
+<div class="album py-5" >
+    <div class="container">
+        <h3 class="my-2" style="display: grid;place-items: center;">Update Driver</h3>
+        <div class="row row-cols-1 row-cols-sm-2 g-3" style="display: grid;place-items: center;">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="_id" class="form-label">Driver Id</label>
+                                <input type="text" [(ngModel)]= "aDriver._id" name="_id" class="form-control" id="_id" placeholder="Enter driver id to update driver" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverDepartment" class="form-label">Department</label>
+                                <select name="driverDepartment" [(ngModel)]= "aDriver.driverDepartment" class="form-control" id="driverDepartment" >
+                                    <option value="food" selected>food</option>
+                                    <option value="furniture" selected>furniture</option>
+                                    <option value="electronic" selected>electronic</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverLicence" class="form-label">Driver Licence</label>
+                                <input type="text" [(ngModel)]= "aDriver.driverLicence" name="driverLicence" class="form-control" id="driverLicence" placeholder="Enter driver license to update driver" />
+                            </div>
+                            <button class="btn btn-primary" (click)="updateDriverInfo()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="album py-5">
+    <div class="container">
+        <h3 class="my-2">Package List</h3>
+        <div class="row row-cols-1 g-3">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">MongoDB ID</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">IsAllocated</th>
+                        <th scope="col">packageDriverId</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    
+                    <tbody>
+                       @for(aPackage of packageList; track $index){
+                        <tr>
+                        <th scope="row">{{aPackage._id}}</th>
+                        <td>{{aPackage.packageId}}</td>
+                        <td>{{aPackage.packageTitle}}</td>
+                        <td>{{aPackage.packageWeight|weight}}</td>
+                        <td>{{aPackage.packageDestination}}</td>
+                        <td>{{aPackage.packageDescription}}</td>
+                        <td>{{aPackage.isAllocated}}</td>
+                        <td>{{aPackage.packageDriverId}}</td>
+                        <td>
+                          <form>
+                        <button class="btn btn-danger" (click)="deletePackage(aPackage._id)" id="packageIdDelete" name="packageIdDelete" >X</button></form>
+                      </td>
+                      </tr>
+                    }
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
